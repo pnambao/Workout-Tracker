@@ -3,14 +3,14 @@ const router = require("express").Router();
 
 
 // get workouts
-router.get("/", async (req, res) => {
+router.get("/api/workouts", async (req, res) => {
     let result = await db.find({});
     console.log(result);
     res.send(result);
   });
 
 //add exercise
-router.put("/:id", async (req, res) => {
+router.put("/api/workouts/:id", async (req, res) => {
     let workout = await db.findOne({
       _id: req.params.id,
     });
@@ -21,14 +21,14 @@ router.put("/:id", async (req, res) => {
   });
 
 //create exercise
-router.post("/", async (req, res) => {
+router.post("/api/workouts", async (req, res) => {
     let result = await db.create(req.body);
     console.log(result);
     res.send(result);
   });
 
 //get range
-router.get("/range", async (req, res) => {
+router.get("/api/workouts/range", async (req, res) => {
     let result = await db.find({}).sort({ day: -1 }).limit(7);
     console.log(result);
     res.send(result);
