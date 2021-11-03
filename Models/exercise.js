@@ -2,11 +2,11 @@
 const mongoose = require ("mongoose");
 
 //creating mongoose schema
-const schema = mongoose.schema;
+const Schema = mongoose.Schema;
 
 //create the new workout schema
 
-const WorkoutSchema = new schema ({
+const workoutSchema = new Schema ({
     exercises: {
         type: Array,
         required: true
@@ -19,7 +19,7 @@ const WorkoutSchema = new schema ({
 });
 
 //Create mongoose model 'workout' and apply the workout schema to the model
-const workout = mongoose.model("workout", WorkoutSchema);
+const workout = mongoose.model("workout", workoutSchema);
 
 //exporting the workout model
 module.exports = workout;
